@@ -5,6 +5,7 @@ import './App.css';
 import { uploadFile } from './API/apis';
 function App() {
   const [file,setFile] = useState('');
+  const [result,setResult]=useState('');
   const onUploadClick=()=>{
     fileinput.current.click();
   }
@@ -15,6 +16,7 @@ function App() {
         data.append("name",file.name);
         data.append("file",file);
         let response =  await uploadFile(data);
+        setResult(response.path);
       }
     }
     getImage();
@@ -31,6 +33,7 @@ function App() {
     style={{display:'none'}}
     onChange={(e)=>setFile(e.target.files[0])}
     />
+    <a href={result} target='_blank'>{result}</a>
     </div>
   </div>
   );
