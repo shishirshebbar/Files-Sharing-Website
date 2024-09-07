@@ -1,12 +1,24 @@
-import logo from './image.jpeg';
+import logo from './assets/image.jpeg';
+import React from 'react';
 import { useRef,useState,useEffect } from 'react';
 import './App.css';
-
+import { uploadFile } from './API/apis';
 function App() {
   const [file,setFile] = useState('');
   const onUploadClick=()=>{
     fileinput.current.click();
   }
+  useEffect(()=>{
+    const getImage =async()=>{
+      if(file){
+        const  data = new FormData();
+        data.append("name",file.name);
+        data.append("file",file);
+        let response =  await uploadFile(data);
+      }
+    }
+    getImage();
+  },[])
   const fileinput = useRef();
   return (<div className='container'>
     {/* <img src={logo} alt="wallpaper" /> */}
