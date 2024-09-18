@@ -6,22 +6,33 @@ import { uploadFile } from './API/apis';
 function App() {
   const [file,setFile] = useState('');
   const [result,setResult]=useState('');
-  const onUploadClick=()=>{
-    fileinput.current.click();
-  }
+  const fileInputRef = useRef();
   useEffect(()=>{
     const getImage =async()=>{
       if(file){
         const  data = new FormData();
         data.append("name",file.name);
         data.append("file",file);
-        let response =  await uploadFile(data);
-        setResult(response.path);
+        try {
+          const response = await uploadFile(data);
+          
+          // Check if response and response.path exist
+          if (response && response.path) {
+            setResult(response.path);
+          } else {
+            console.error('Error: No path in response:', response);
+          }
+        } catch (error) {
+          console.error('File upload error:', error);
+        }
       }
     }
     getImage();
-  },[])
-  const fileinput = useRef();
+  },[file])
+  const onUploadClick = () => {
+    fileInputRef.current.click();
+  }
+
   return (<div className='container'>
     {/* <img src={logo} alt="wallpaper" /> */}
     <div className='wrapper'>
@@ -29,7 +40,7 @@ function App() {
     <p>Upload the file and share the download link!!</p>
     <button onClick={()=>onUploadClick()}>Upload file</button>
     <input type="file"
-    ref = {fileinput}
+    ref = {fileInputRef}
     style={{display:'none'}}
     onChange={(e)=>setFile(e.target.files[0])}
     />
