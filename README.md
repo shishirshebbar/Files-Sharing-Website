@@ -1,4 +1,4 @@
-# Word to PDF Converter Website
+# Files Sharing Application
 
 ## About the Project
 
@@ -13,7 +13,7 @@ A full‑stack (MERN) file sharing web application that lets users upload, downl
 - File metadata (name, size, upload date, owner)  
 - Delete and manage uploaded files  
 - Upload progress and basic validation (size / type)  
-- Backend API and MongoDB storage (GridFS or file system)  
+- Backend API and MongoDB storage  
 - Responsive frontend  
 
 ---
