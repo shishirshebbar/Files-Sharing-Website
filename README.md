@@ -2,18 +2,19 @@
 
 ## About the Project
 
-This project is a web application built using the MERN stack that allows users to convert Word documents into PDF files quickly and efficiently. Users can upload a Word file, and the system processes it to generate a downloadable PDF. The application features a responsive interface for seamless interaction and a backend API to handle file processing and storage.
+A full‑stack (MERN) file sharing web application that lets users upload, download, share, and manage files. The backend provides REST APIs for file handling and optional authentication; the frontend is a responsive web UI.
 
 ---
 
 ## Features
 
-- Upload Word documents for conversion  
-- Download generated PDF files  
-- Simple and intuitive user interface  
-- Backend API for file handling and conversion  
-- Storage of uploaded files in the database  
-- Full-stack MERN architecture  
+- Upload and download files (multiple types)  
+- Generate shareable links for files  
+- File metadata (name, size, upload date, owner)  
+- Delete and manage uploaded files  
+- Upload progress and basic validation (size / type)  
+- Backend API and MongoDB storage (GridFS or file system)  
+- Responsive frontend  
 
 ---
 
@@ -22,7 +23,7 @@ This project is a web application built using the MERN stack that allows users t
 Open a terminal and run:
 
 ```bash
-git clone https://github.com/your-username/word-to-pdf-converter.git
+git clone https://github.com/shishirshebbar/Files-Sharing-Website.git
 
 ```
 
